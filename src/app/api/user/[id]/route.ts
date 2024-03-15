@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest  } from "next/server";
 import connectDB from "@/lib/db";
 import { User } from "@/models/user.model";
 
 export async function GET(
-  req: NextApiRequest,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -20,7 +20,7 @@ export async function GET(
 }
 
 export async function DELETE(
-  req: NextApiRequest,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {

@@ -1,11 +1,11 @@
-import useSWR, { responseInterface } from "swr";
+import useSWR from "swr";
 
 interface UserData {
   username: string;
   designation: string;
 }
 
-const useFetch = (url: string): responseInterface<UserData[], Error> => {
+const useFetch = (url: string): any => {
   const fetchData = async (url: string) => {
     const response = await fetch(url);
     if (!response.ok) {

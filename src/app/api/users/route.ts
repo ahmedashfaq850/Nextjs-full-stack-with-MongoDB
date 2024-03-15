@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     const usersData = await User.find({});
-    if ((await usersData).length > 0) {
+    if (usersData.length > 0) {
       return NextResponse.json(usersData);
     } else {
       return NextResponse.json({ message: "No Users Found" });

@@ -1,6 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse, NextRequest  } from "next/server";
-import connectDB from "@/lib/db";
 import { User } from "@/models/user.model";
 
 export async function GET(
@@ -8,7 +6,6 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    await connectDB();
     const user = await User.findById(params.id);
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -24,7 +21,6 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    await connectDB();
     const user = await User.findById(params.id);
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
